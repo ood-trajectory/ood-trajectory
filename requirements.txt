@@ -1,0 +1,11 @@
+torch
+torchvision
+scikit-learn
+pandas
+tqdm
+python-dotenv
+ml_collections
+# plots
+SciencePlots
+seaborn
+matplotlib
