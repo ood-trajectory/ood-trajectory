@@ -26,6 +26,7 @@ parser.add_argument("-agg", "--aggregation", type=str.lower, help="aggregation m
 
 # baseline arguments
 parser.add_argument("-t", "--temperature", type=float, help="temperature for baselines")
+parser.add_argument("-eps", "--eps", type=float, help="eps for baselines")
 
 
 class Arguments:
@@ -48,6 +49,7 @@ class Arguments:
     dataset: str = None
 
     temperature: float = 1.0
+    eps: float = 0.0
 
     def __init__(self, args: argparse.Namespace):
         """override default arguments"""

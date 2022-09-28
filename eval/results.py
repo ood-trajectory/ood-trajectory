@@ -15,7 +15,6 @@ class Config:
     dataset_name: str = None
     out_dataset: str = None
     score_method: str = None
-    temperature: float = 1.0
     aggregation: str = None
 
     def update(self, **kwargs):
@@ -64,14 +63,6 @@ def get_metadata(config: Config):
 
 def np_load_train_targets(config: Config) -> np.ndarray:
     name = "train_targets"
-    root = get_in_tensors_path(config)
-    path = os.path.join(root, name + ".npy")
-    arr = np.load(path)
-    return arr
-
-
-def np_load_test_targets(config: Config):
-    name = "targets"
     root = get_in_tensors_path(config)
     path = os.path.join(root, name + ".npy")
     arr = np.load(path)

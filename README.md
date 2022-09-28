@@ -99,6 +99,16 @@ python3 trajectory_score.py --detector projection \
     -agg innerproduct
 ```
 
+- Reproducing the baseline results
+
+```shell
+python3 baselines.py --detector odin \
+    --batch-size 64 --temperature 1000 --eps 0  \
+    --model densenet121_ilsvrc2012 --dataset textures
+ ```
+
+The arguments for the `detector` are `ODIN`, `ENERGY`, and `GRADNORM`.
+
 ## Our Method
 
 In a simplified way, our method consists of the following steps:
