@@ -199,5 +199,3 @@ if __name__ == "__main__":
     )
     print(config)
     main()
-
-# python -m baselines --score odin --temperature 1000 --eps 0 --batch-size 256 --nn vit16l_ilsvrc2012 -out mos_inaturalist --model-path vision/pre_trained/ViT-L_16.npz

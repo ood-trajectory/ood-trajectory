@@ -115,8 +115,6 @@ class Textures(DatasetInfo):
         )
 
     def get(self, root=None, split=None, transform=None, *args, **kwargs):
-        # if split == "test":
-        #     split = "val"
         train_dataset = self.dataset_class(
             root=root, split="train", transform=transform, download=True
         )
@@ -164,62 +162,6 @@ def get_dataset(dataset_name, transform=None, train=False, root=DATASETS_DIR):
     if train:
         return dataset.get_train_set(root, transform)
     return dataset.get_test_set(root, transform)
-
-
-def get_dataset_transformation_by_name(dataset_name, train=False):
-    dataset = get_dataset_info_by_name(dataset_name)
-    if train:
-        return dataset.train_transformation()
-    return dataset.test_transformation()
-
-
-def get_dataset_statistics_by_name(dataset_name):
-    dataset = get_dataset_info_by_name(dataset_name)
-    return dataset.train_statistics
-
-
-def get_dataset_size_by_name(dataset_name):
-    dataset = get_dataset_info_by_name(dataset_name)
-    return dataset.size
-
-
-def get_dataset_n_classes_by_name(dataset_name):
-    dataset = get_dataset_info_by_name(dataset_name)
-    return dataset.n_classes
-
-
-def get_test_dataloader(
-    dataset_name: str,
-    root=DATASETS_DIR,
-    transform=None,
-    shuffle=False,
-    batch_size=200,
-    *args,
-    **kwargs
-):
-    dataset = get_dataset(dataset_name, transform, train=False, root=root)
-    return torch.utils.data.DataLoader(
-        dataset, shuffle=shuffle, batch_size=batch_size, *args, **kwargs
-    )
-
-
-def get_train_dataloader(
-    dataset_name: str,
-    root=DATASETS_DIR,
-    transform=None,
-    shuffle=False,
-    batch_size=200,
-    *args,
-    **kwargs
-):
-    dataset = get_dataset(dataset_name, transform, train=True, root=root)
-    return torch.utils.data.DataLoader(
-        dataset, shuffle=shuffle, batch_size=batch_size, *args, **kwargs
-    )
-
-
-def get_img_by_idx(dataset, idx):
-    return dataset[idx][0], dataset[idx][1]
 
 
 def pretty_name_mapper(dataset_name: str):

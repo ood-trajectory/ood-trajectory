@@ -110,58 +110,6 @@ def compute_detection_metrics(
     }
 
 
-def get_confusion_matrix(y_true, y_pred, labels=None):
-    tn, fp, fn, tp = skm.confusion_matrix(y_true, y_pred, labels=labels).ravel()
-    return tn, fp, fn, tp
-
-
-def false_positive_rate(tn, fp, fn, tp):
-    return fp / (fp + tn + 1e-8)
-
-
-def false_negative_rate(tn, fp, fn, tp):
-    return fn / (tp + fn + 1e-8)
-
-
-def true_negative_rate(tn, fp, fn, tp):
-    # specificity, selectivity or true negative rate (TNR)
-    return tn / (fp + tn + 1e-8)
-
-
-def precision(tn, fp, fn, tp):
-    # precision or positive predictive value (PPV)
-    return tp / (tp + fp + 1e-8)
-
-
-def recall(tn, fp, fn, tp):
-    # sensitivity, recall, hit rate, or true positive rate
-    return tp / (tp + fn + 1e-8)
-
-
-def true_positive_rate(tn, fp, fn, tp):
-    return recall(tn, fp, fn, tp)
-
-
-def negative_predictive_value(tn, fp, fn, tp):
-    return tn / (tn + fn)
-
-
-def f1_score(tn, fp, fn, tp):
-    return 2 * tp / (2 * tp + fp + fn)
-
-
-def accuracy_score(tn, fp, fn, tp):
-    return (tp + tn) / (tp + tn + fp + fn)
-
-
-def error_score(tn, fp, fn, tp):
-    return 1 - accuracy_score(tn, fp, fn, tp)
-
-
-def threat_score(tn, fp, fn, tp):
-    return tp / (tp + fn + fp)
-
-
 METRICS_NAMES_PRETTY = {
     "tnr_at_0.95_tpr": "TNR at 95% TPR",
     "fpr_at_0.95_tpr": "FPR at 95% TPR",

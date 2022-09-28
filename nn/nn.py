@@ -49,12 +49,6 @@ def load_model_from_state_dict(
     return model
 
 
-def number_of_parameters(model: torch.nn.Module):
-    """Returns the number of trainable parameters of a torch module in MB."""
-    params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    return params
-
-
 @dataclass
 class ModelInfo(ABC):
     name: str
@@ -302,13 +296,6 @@ def get_feature_extractor_by_name(
 
     nodes = get_model_features_nodes_by_name(nn_name, linear_nodes)
     return create_feature_extractor(model, return_nodes=nodes)
-
-
-def pretty_name_mapper(model_name: str):
-    try:
-        return get_model_info(model_name.upper()).name
-    except:
-        return model_name.upper()
 
 
 def get_data_transform(nn_name: str, train: bool = False):

@@ -149,5 +149,3 @@ if __name__ == "__main__":
         level=logging.INFO,
     )
     main(args)
-
-    # python save_features.py --model densenet121_ilsvrc2012 --dataset ilsvrc2012 --batch-size 32

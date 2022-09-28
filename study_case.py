@@ -1,16 +1,15 @@
-from collections import defaultdict
-import os
 import json
+import os
+from collections import defaultdict
 
-import eval.metrics as m
+import matplotlib.pyplot as plt
 import numpy as np
+import sklearn.metrics as skm
 import torch
 
 import data as data_utils
+import eval.metrics as m
 import eval.results as res
-import sklearn.metrics as skm
-import matplotlib.pyplot as plt
-
 
 plt.style.use(["science", "light", "no-latex"])
 SMALL_SIZE = 10

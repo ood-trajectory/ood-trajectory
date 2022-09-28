@@ -2,8 +2,8 @@ import logging
 import os
 
 import torch
-from torch import Tensor
 import torch.utils.data
+from torch import Tensor
 from tqdm import tqdm
 
 import eval.metrics as m
