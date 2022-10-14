@@ -145,7 +145,7 @@ class LayerWiseProjectionScore:
         )
         scores  = (
             torch.norm(x, p=2, dim=-1, keepdim=True) * 
-            cosine_layer_score(x, self.mus.to(x.device)
+            cosine_layer_score(x, self.mus.to(x.device))
         )
 
         pred_scores = scores[mask]
